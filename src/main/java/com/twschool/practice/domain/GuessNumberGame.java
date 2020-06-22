@@ -31,10 +31,10 @@ public class GuessNumberGame {
     private void changeScores() {
         if (GameStatus.SUCCEED == gameStatus) {
             gameScores += SCORE_ONE_TIME;
-            if (successTimes==3){
+            if (successTimes % 3 == 0){
                 gameScores += 2;
             }
-            if (successTimes==5){
+            if (successTimes % 5 == 0){
                 gameScores += 3;
             }
         }
