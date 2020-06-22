@@ -1,16 +1,18 @@
 package com.twschool.practice.service;
 
+import com.twschool.practice.domain.GameRepository;
 import com.twschool.practice.domain.GuessNumberGame;
 
 public class GameService {
-    private GuessNumberGame guessNumberGame;
+    private GameRepository gameRepository;
 
-    public GameService(GuessNumberGame guessNumberGame) {
+    public GameService(GameRepository gameRepository) {
 
-        this.guessNumberGame = guessNumberGame;
+        this.gameRepository = gameRepository;
     }
 
     public String guess(String number) {
-        return guessNumberGame.guess(number);
+        GuessNumberGame game = gameRepository.find();
+        return game.guess(number);
     }
 }
