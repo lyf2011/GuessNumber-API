@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import java.util.Arrays;
+
 public class GuessNumberGameTest {
 
     private GuessNumberGame guessNumberGame;
@@ -62,6 +64,13 @@ public class GuessNumberGameTest {
         GameStatus gameStatus = guessNumberGame.getStatus();
 
         Assert.assertEquals(GameStatus.FAILED, gameStatus);
+    }
+
+    @Test
+    public void should_return_3_score_when_guess_correct() {
+        guessNumberGame.guess("1 2 3 4");
+
+        Assert.assertEquals(3, guessNumberGame.getGameScores());
     }
 
 }
