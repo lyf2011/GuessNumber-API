@@ -12,9 +12,9 @@ import java.util.Map;
 public class GameController {
     @PostMapping("/game/guess-numbers")
     public Map<String,String> guess(@RequestBody Map<String, String> requestBody){
-        Map<String, String> responsetBody = new HashMap<>();
-        responsetBody.put("input",requestBody.get("number"));
-        responsetBody.put("result", "4A0B");
-        return responsetBody;
+        Map<String, String> responseBody = new HashMap<>();
+        responseBody.put("input",requestBody.get("number"));
+        responseBody.put("result", "4A0B");
+        return responseBody;
     }
 }
