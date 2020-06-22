@@ -73,4 +73,16 @@ public class GuessNumberGameTest {
         Assert.assertEquals(3, guessNumberGame.getGameScores());
     }
 
+    @Test
+    public void should_return_negative_3_score_when_guess_wrong() {
+        guessNumberGame.guess("1 2 3 5");
+        guessNumberGame.guess("1 2 3 5");
+        guessNumberGame.guess("1 2 3 5");
+        guessNumberGame.guess("1 2 3 5");
+        guessNumberGame.guess("1 2 3 5");
+        guessNumberGame.guess("1 2 3 5");
+
+        Assert.assertEquals(-3, guessNumberGame.getGameScores());
+    }
+
 }
