@@ -10,6 +10,12 @@ public class GuessNumberGame {
     private int gameScores = 0;
     public static final int SCORE_ONE_TIME = 3;
 
+    public int getSuccessTimes() {
+        return successTimes;
+    }
+
+    private int successTimes = 0;
+
     public GuessNumberGame(AnswerGenerator answerGenerator) {
         this.gameAnswer = answerGenerator.generateAnswer();
     }
@@ -25,6 +31,12 @@ public class GuessNumberGame {
     private void changeScores() {
         if (GameStatus.SUCCEED == gameStatus) {
             gameScores += SCORE_ONE_TIME;
+            if (successTimes==3){
+                gameScores += 2;
+            }
+            if (successTimes==5){
+                gameScores += 3;
+            }
         }
         if (GameStatus.FAILED == gameStatus) {
             gameScores -= SCORE_ONE_TIME;
@@ -34,8 +46,10 @@ public class GuessNumberGame {
     private void modifyStatus(String result) {
         if (CORRECT_RESULT.equals(result)) {
             gameStatus = GameStatus.SUCCEED;
+            successTimes++;
         } else if (leftTryTimes == 0) {
             gameStatus = GameStatus.FAILED;
+            successTimes = 0;
         }
     }
 

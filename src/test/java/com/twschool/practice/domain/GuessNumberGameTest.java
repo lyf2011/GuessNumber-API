@@ -85,4 +85,24 @@ public class GuessNumberGameTest {
         Assert.assertEquals(-3, guessNumberGame.getGameScores());
     }
 
+    @Test
+    public void should_return_11_score_when_guess_correct_3_times() {
+        guessNumberGame.guess("1 2 3 4");
+        guessNumberGame.guess("1 2 3 4");
+        guessNumberGame.guess("1 2 3 4");
+
+        Assert.assertEquals(11, guessNumberGame.getGameScores());
+    }
+
+    @Test
+    public void should_return_20_score_when_guess_correct_5_times() {
+        guessNumberGame.guess("1 2 3 4");
+        guessNumberGame.guess("1 2 3 4");
+        guessNumberGame.guess("1 2 3 4");
+        guessNumberGame.guess("1 2 3 4");
+        guessNumberGame.guess("1 2 3 4");
+
+        Assert.assertEquals(20, guessNumberGame.getGameScores());
+    }
+
 }
